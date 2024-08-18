@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tipcalculator/dasbord.dart';
 
 void main() {
   runApp(TipCalculator());
 }
+
 class TipCalculator extends StatelessWidget {
   const TipCalculator({Key? key}) : super(key: key);
 
@@ -15,26 +17,7 @@ class TipCalculator extends StatelessWidget {
   }
 }
 
-class TipDashBoard extends StatelessWidget {
-  final TextEditingController TipContoler = TextEditingController();
 
-  TextEditingController TipControler = TextEditingController();
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      /*appBar: AppBar(
-        title: Text(""),
-      ),*/
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            
-          ],
-        ),
-      ),
-    );
-  }
-}
 
 
 //#01C9BE  Main color
