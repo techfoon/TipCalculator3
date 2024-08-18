@@ -1,5 +1,5 @@
 main() {
-  print("chhoto is mad");
-  print("chhoto is mad");
-  print("chhoto is mad");
+  print("Peeyush");
+  print("Peeyush");
+  print("Peeyush");
 }
