@@ -67,7 +67,7 @@ class TipDashBoard extends StatelessWidget {
                     ),
                   )),
               Expanded(
-                  flex: 5,
+                  flex: 4,
                   child: Container(
                     height: 230,
                     child: Card(
@@ -200,111 +200,211 @@ class TipDashBoard extends StatelessWidget {
                     ),
                   )),
               Expanded(
-                  flex: 4,
+                  flex: 3,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                          flex: 1,
+                          child: Container(
+                              child: Text.rich(
+                            TextSpan(
+                                text: "Choose\n",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w900, fontSize: 18),
+                                children: [
+                                  TextSpan(
+                                    text: "your Tip",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w400),
+                                  )
+                                ]),
+                          ))),
+                      Expanded(
+                          flex: 3,
+                          child: Column(
+                            children: [
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(1.0),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Expanded(
+                                        flex: 1,
+                                        child: Container(
+                                          height: 50,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            color: Color.fromARGB(
+                                                255, 12, 200, 172),
+                                          ),
+                                          child: Center(
+                                              child: Text(
+                                            "10%",
+                                            style: TextStyle(
+                                                fontSize: 23,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white),
+                                          )),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      Expanded(
+                                        flex: 1,
+                                        child: Container(
+                                          height: 50,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            color: Color.fromARGB(
+                                                255, 12, 200, 172),
+                                          ),
+                                          child: Center(
+                                              child: Text(
+                                            "15%",
+                                            style: TextStyle(
+                                                fontSize: 23,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white),
+                                          )),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Expanded(
+                                        flex: 1,
+                                        child: Container(
+                                          height: 50,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            color: Color.fromARGB(
+                                                255, 12, 200, 172),
+                                          ),
+                                          child: Center(
+                                              child: Text(
+                                            "20%",
+                                            style: TextStyle(
+                                                fontSize: 23,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white),
+                                          )),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(1.0),
+                                  child: Container(
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: Color.fromARGB(255, 12, 200, 172),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        "Custom tip",
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ))
+                    ],
+                  )),
+              Expanded(
+                  flex: 2,
                   child: Container(
                     child: Row(
                       children: [
                         Expanded(
                             flex: 1,
                             child: Container(
-                                child: Container(
-                                    child: Text.rich(
+                                child: Text.rich(
                               TextSpan(
-                                  text: "Enter\n",
+                                  text: "Split\n",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w900,
                                       fontSize: 18),
                                   children: [
                                     TextSpan(
-                                      text: "your billd",
+                                      text: "the total",
                                       style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w400),
                                     )
                                   ]),
-                            )))),
+                            ))),
                         Expanded(
                             flex: 3,
                             child: Container(
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Container(
-                                    height: 50,
-                                    width: 70,
+                                child: Row(
+                              children: [
+                                Expanded(
+                                  flex: 2,
+                                  child: Container(
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10),
+                                        bottomLeft: Radius.circular(10),
+                                      ),
                                       color: Color.fromARGB(255, 12, 200, 172),
                                     ),
                                     child: Center(
-                                        child: Text(
-                                      "10%",
-                                      style: TextStyle(
-                                          fontSize: 23,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
+                                        child: Icon(
+                                      Icons.remove,
+                                      color: Colors.white,
+                                      size: 23,
                                     )),
                                   ),
-                                  Container(
-                                    height: 50,
-                                    width: 70,
+                                ),
+                                Expanded(
+                                  flex: 3,
+                                  child: Container(
+                                    child: Center(
+                                        child: TextField(
+                                      decoration: InputDecoration(
+                                          border: OutlineInputBorder(),
+                                          hintText: "2"),
+                                    )),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 2,
+                                  child: Container(
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
+                                      borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(10),
+                                        bottomRight: Radius.circular(10),
+                                      ),
                                       color: Color.fromARGB(255, 12, 200, 172),
                                     ),
                                     child: Center(
-                                        child: Text(
-                                      "15%",
-                                      style: TextStyle(
-                                          fontSize: 23,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
+                                        child: Icon(
+                                      Icons.add,
+                                      color: Colors.white,
                                     )),
                                   ),
-                                  Container(
-                                    height: 50,
-                                    width: 70,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      color: Color.fromARGB(255, 12, 200, 172),
-                                    ),
-                                    child: Center(
-                                        child: Text(
-                                      "20%",
-                                      style: TextStyle(
-                                          fontSize: 23,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
-                                    )),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.only(left: 60, top: 10),
-                                    height: 50,
-                                    width: 233,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      color: Color.fromARGB(255, 12, 200, 172),
-                                    ),
-                                    child: Center(
-                                        child: Text(
-                                      "Custom tip",
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
-                                    )),
-                                  ),
-                                ],
-                              ),
-                            ))
+                                )
+                              ],
+                            )))
                       ],
                     ),
-                  )),
-              Expanded(
-                  flex: 2,
-                  child: Container(
-                    color: Colors.pink,
                   )),
             ],
           ),
