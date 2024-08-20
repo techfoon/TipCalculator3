@@ -56,7 +56,7 @@ class TipDashBoard extends StatelessWidget {
                                 )
                               ],
                             ),
-                            Text('Calculator',
+                            Text('calculator',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 17,
