@@ -201,33 +201,34 @@ class TipDashBoard extends StatelessWidget {
                   )),
               Expanded(
                   flex: 3,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                          flex: 1,
-                          child: Container(
-                              child: Text.rich(
-                            TextSpan(
-                                text: "Choose\n",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w900, fontSize: 18),
-                                children: [
-                                  TextSpan(
-                                    text: "your Tip",
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w400),
-                                  )
-                                ]),
-                          ))),
-                      Expanded(
-                          flex: 3,
-                          child: Column(
-                            children: [
-                              Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(1.0),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 30),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                            flex: 1,
+                            child: Container(
+                                child: Text.rich(
+                              TextSpan(
+                                  text: "Choose\n",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w900,
+                                      fontSize: 18),
+                                  children: [
+                                    TextSpan(
+                                      text: "your Tip",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w400),
+                                    )
+                                  ]),
+                            ))),
+                        Expanded(
+                            flex: 3,
+                            child: Column(
+                              children: [
+                                Expanded(
                                   child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
@@ -235,7 +236,6 @@ class TipDashBoard extends StatelessWidget {
                                       Expanded(
                                         flex: 1,
                                         child: Container(
-                                          height: 50,
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(10),
@@ -258,7 +258,6 @@ class TipDashBoard extends StatelessWidget {
                                       Expanded(
                                         flex: 1,
                                         child: Container(
-                                          height: 50,
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(10),
@@ -281,7 +280,6 @@ class TipDashBoard extends StatelessWidget {
                                       Expanded(
                                         flex: 1,
                                         child: Container(
-                                          height: 50,
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(10),
@@ -301,10 +299,10 @@ class TipDashBoard extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(1.0),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Expanded(
                                   child: Container(
                                     width: double.infinity,
                                     decoration: BoxDecoration(
@@ -322,20 +320,20 @@ class TipDashBoard extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ))
-                    ],
+                              ],
+                            ))
+                      ],
+                    ),
                   )),
               Expanded(
                   flex: 2,
-                  child: Container(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 10, bottom: 40),
                     child: Row(
                       children: [
                         Expanded(
                             flex: 1,
-                            child: Container(
-                                child: Text.rich(
+                            child: Text.rich(
                               TextSpan(
                                   text: "Split\n",
                                   style: TextStyle(
@@ -349,7 +347,7 @@ class TipDashBoard extends StatelessWidget {
                                           fontWeight: FontWeight.w400),
                                     )
                                   ]),
-                            ))),
+                            )),
                         Expanded(
                             flex: 3,
                             child: Container(
@@ -377,10 +375,11 @@ class TipDashBoard extends StatelessWidget {
                                   flex: 3,
                                   child: Container(
                                     child: Center(
-                                        child: TextField(
-                                      decoration: InputDecoration(
-                                          border: OutlineInputBorder(),
-                                          hintText: "2"),
+                                        child: Text(
+                                      '2',
+                                      style: TextStyle(
+                                          fontSize: 25,
+                                          fontWeight: FontWeight.bold),
                                     )),
                                   ),
                                 ),
