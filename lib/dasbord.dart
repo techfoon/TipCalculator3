@@ -1,12 +1,28 @@
 import 'package:flutter/material.dart';
 
-class TipDashBoard extends StatelessWidget {
+class TipDashBoard extends StatefulWidget {
+  @override
+  State<TipDashBoard> createState() => _TipDashBoardState();
+}
+
+class _TipDashBoardState extends State<TipDashBoard> {
+  int Splitcount = 1;
+  int tipPercent = 0;
+  num totalBillAmt = 0.0;
+  num totalTipAmt = 0.0;
+  num totalAmt = 0.0;
+  num perPersonAmt = 0.0;
+  bool isCustomTip = false;
+
   final TextEditingController TipContoler = TextEditingController();
 
   TextEditingController TipControler = TextEditingController();
+  TextEditingController TipCustomContoler = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFFFF5F3F4),
       /*appBar: AppBar(
         title: Text(""),
@@ -100,7 +116,8 @@ class TipDashBoard extends StatelessWidget {
                                         fontSize: 30),
                                     children: [
                                       TextSpan(
-                                          text: "000",
+                                          text:
+                                              "${perPersonAmt == 0.0 ? "000" : perPersonAmt.toStringAsFixed(2)}",
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                               fontSize: 60))
@@ -129,7 +146,8 @@ class TipDashBoard extends StatelessWidget {
                                         "Total tip",
                                         style: TextStyle(fontSize: 18),
                                       ),
-                                      Text("\$000",
+                                      Text(
+                                          "\$${totalTipAmt == 0.0 ? "000" : totalTipAmt.toStringAsFixed(2)}",
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                               color: Color.fromARGB(
@@ -143,7 +161,8 @@ class TipDashBoard extends StatelessWidget {
                                         "TotalBill",
                                         style: TextStyle(fontSize: 18),
                                       ),
-                                      Text("\$000",
+                                      Text(
+                                          "\$${totalBillAmt == 0.0 ? "000" : totalBillAmt.toStringAsFixed(2)}",
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                               color: Color.fromARGB(
@@ -186,6 +205,7 @@ class TipDashBoard extends StatelessWidget {
                             flex: 3,
                             child: Container(
                               child: TextField(
+                                keyboardType: TextInputType.number,
                                 controller: TipContoler,
                                 decoration: InputDecoration(
                                   contentPadding:
@@ -235,21 +255,27 @@ class TipDashBoard extends StatelessWidget {
                                     children: [
                                       Expanded(
                                         flex: 1,
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            color: Color.fromARGB(
-                                                255, 12, 200, 172),
+                                        child: InkWell(
+                                          onTap: () {
+                                            tipPercent = 10;
+                                            updateTheResult();
+                                          },
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              color: Color.fromARGB(
+                                                  255, 12, 200, 172),
+                                            ),
+                                            child: Center(
+                                                child: Text(
+                                              "10%",
+                                              style: TextStyle(
+                                                  fontSize: 23,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.white),
+                                            )),
                                           ),
-                                          child: Center(
-                                              child: Text(
-                                            "10%",
-                                            style: TextStyle(
-                                                fontSize: 23,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.white),
-                                          )),
                                         ),
                                       ),
                                       const SizedBox(
@@ -257,21 +283,27 @@ class TipDashBoard extends StatelessWidget {
                                       ),
                                       Expanded(
                                         flex: 1,
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            color: Color.fromARGB(
-                                                255, 12, 200, 172),
+                                        child: InkWell(
+                                          onTap: () {
+                                            tipPercent = 15;
+                                            updateTheResult();
+                                          },
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              color: Color.fromARGB(
+                                                  255, 12, 200, 172),
+                                            ),
+                                            child: Center(
+                                                child: Text(
+                                              "15%",
+                                              style: TextStyle(
+                                                  fontSize: 23,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.white),
+                                            )),
                                           ),
-                                          child: Center(
-                                              child: Text(
-                                            "15%",
-                                            style: TextStyle(
-                                                fontSize: 23,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.white),
-                                          )),
                                         ),
                                       ),
                                       SizedBox(
@@ -279,21 +311,27 @@ class TipDashBoard extends StatelessWidget {
                                       ),
                                       Expanded(
                                         flex: 1,
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            color: Color.fromARGB(
-                                                255, 12, 200, 172),
+                                        child: InkWell(
+                                          onTap: () {
+                                            tipPercent = 20;
+                                            updateTheResult();
+                                          },
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              color: Color.fromARGB(
+                                                  255, 12, 200, 172),
+                                            ),
+                                            child: Center(
+                                                child: Text(
+                                              "20%",
+                                              style: TextStyle(
+                                                  fontSize: 23,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.white),
+                                            )),
                                           ),
-                                          child: Center(
-                                              child: Text(
-                                            "20%",
-                                            style: TextStyle(
-                                                fontSize: 23,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.white),
-                                          )),
                                         ),
                                       ),
                                     ],
@@ -303,21 +341,60 @@ class TipDashBoard extends StatelessWidget {
                                   height: 5,
                                 ),
                                 Expanded(
-                                  child: Container(
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      color: Color.fromARGB(255, 12, 200, 172),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        "Custom tip",
-                                        style: TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white),
-                                      ),
-                                    ),
+                                  child: Stack(
+                                    children: [
+                                      isCustomTip
+                                          ? Container()
+                                          : InkWell(
+                                              onTap: () {
+                                                isCustomTip = true;
+                                                updateTheResult();
+                                              },
+                                              child: Container(
+                                                width: double.infinity,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                  color: Color.fromARGB(
+                                                      255, 12, 200, 172),
+                                                ),
+                                                child: Center(
+                                                  child: Text(
+                                                    "Custom tip",
+                                                    style: TextStyle(
+                                                        fontSize: 20,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: Colors.white),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                      isCustomTip
+                                          ? TextField(
+                                              keyboardType:
+                                                  TextInputType.number,
+                                              controller: TipCustomContoler,
+                                              decoration: InputDecoration(
+                                                contentPadding:
+                                                    EdgeInsets.symmetric(
+                                                        vertical: 2),
+                                                prefixIcon: Icon(Icons.percent),
+                                                border: OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10)),
+                                              ),
+                                              onChanged: (value) {
+                                                tipPercent = int.parse(
+                                                    TipCustomContoler.text
+                                                        .toString());
+
+                                                updateTheResult();
+                                              },
+                                            )
+                                          : Container()
+                                    ],
                                   ),
                                 ),
                               ],
@@ -355,20 +432,29 @@ class TipDashBoard extends StatelessWidget {
                               children: [
                                 Expanded(
                                   flex: 2,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10),
-                                        bottomLeft: Radius.circular(10),
+                                  child: InkWell(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(10),
+                                          bottomLeft: Radius.circular(10),
+                                        ),
+                                        color:
+                                            Color.fromARGB(255, 12, 200, 172),
                                       ),
-                                      color: Color.fromARGB(255, 12, 200, 172),
+                                      child: Center(
+                                          child: Icon(
+                                        Icons.remove,
+                                        color: Colors.white,
+                                        size: 23,
+                                      )),
                                     ),
-                                    child: Center(
-                                        child: Icon(
-                                      Icons.remove,
-                                      color: Colors.white,
-                                      size: 23,
-                                    )),
+                                    onTap: () {
+                                      if (Splitcount > 1) {
+                                        Splitcount--;
+                                      }
+                                      updateTheResult();
+                                    },
                                   ),
                                 ),
                                 Expanded(
@@ -376,7 +462,7 @@ class TipDashBoard extends StatelessWidget {
                                   child: Container(
                                     child: Center(
                                         child: Text(
-                                      '2',
+                                      '$Splitcount',
                                       style: TextStyle(
                                           fontSize: 25,
                                           fontWeight: FontWeight.bold),
@@ -385,19 +471,27 @@ class TipDashBoard extends StatelessWidget {
                                 ),
                                 Expanded(
                                   flex: 2,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topRight: Radius.circular(10),
-                                        bottomRight: Radius.circular(10),
+                                  child: InkWell(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                          topRight: Radius.circular(10),
+                                          bottomRight: Radius.circular(10),
+                                        ),
+                                        color:
+                                            Color.fromARGB(255, 12, 200, 172),
                                       ),
-                                      color: Color.fromARGB(255, 12, 200, 172),
+                                      child: Center(
+                                          child: Icon(
+                                        Icons.add,
+                                        color: Colors.white,
+                                      )),
                                     ),
-                                    child: Center(
-                                        child: Icon(
-                                      Icons.add,
-                                      color: Colors.white,
-                                    )),
+                                    onTap: () {
+                                      Splitcount++;
+                                      updateTheResult();
+                                      ;
+                                    },
                                   ),
                                 )
                               ],
@@ -410,5 +504,18 @@ class TipDashBoard extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void updateTheResult() {
+    if (TipContoler.text.isNotEmpty) {
+      totalBillAmt = double.parse(TipContoler.text.toString());
+      totalTipAmt = totalBillAmt * tipPercent / 100;
+      totalAmt = totalBillAmt + totalTipAmt;
+      perPersonAmt = totalAmt / Splitcount;
+
+      setState(() {});
+    } else {
+      Splitcount = 1;
+    }
   }
 }
